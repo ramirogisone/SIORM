@@ -14,7 +14,7 @@ function App() {
         <Route exact path='/login' component={Login} />
         <Route exact path='/nueva-cuenta' component={NuevaCuenta} />
         {/* debera estar autenticado para ver el administrador */}
-        <Route exact path='/administador' component={Administrador} />
+        <Route exact path='/administrador' component={Administrador} />
       </Switch>
     </Router>
   );
