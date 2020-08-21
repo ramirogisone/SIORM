@@ -1,6 +1,18 @@
-import React, {Fragment, useState} from 'react';
+import React, {useContext} from 'react';
+import seccionContext from '../../context/secciones/seccionContext';
 
 const NuevaImagen = () => {
+
+    // obtener state del formulario
+    const seccionesContext = useContext(seccionContext);
+    // obtengo funciones y states dentro del context 
+    const {seccion} = seccionesContext;
+
+    // si no hay ningun proyecto seleccionado
+    if(!seccion) return null
+
+    // destructuring para extraer la seccion actual
+    const [seccionActual] = seccion;
 
 /*     // state de imagen
     const [imagen, guardarImagen] = useState({
@@ -30,7 +42,7 @@ const NuevaImagen = () => {
         // reiniciar form
     }*/
 
-    return ( 
+    return (    
         <div className='formulario'>
             <form
                 /* onSubmit={onSubmitImagen}

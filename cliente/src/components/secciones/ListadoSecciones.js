@@ -14,7 +14,9 @@ const ListadoSecciones = () => {
         obtenerSecciones();
     }, []);
 
-    if(secciones.length === 0) return null;
+    if(secciones.length === 0) 
+        return <p>Crea una nueva sección</p>
+    ;
 
     return ( 
         <ul className='listado-secciones'>

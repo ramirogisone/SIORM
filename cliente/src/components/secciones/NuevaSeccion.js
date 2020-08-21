@@ -6,7 +6,7 @@ const NuevaSeccion = () => {
     // obtener state del formulario
     const seccionesContext = useContext(seccionContext);
     // obtengo las funciones dentro del context
-    const {formulario, mostrarFormulario} = seccionesContext;
+    const {formulario, mostrarFormulario, errorFormulario, agregarSeccion, mostrarError} = seccionesContext;
 
     // state de seccion
     const [seccion, guardarSeccion] = useState({
@@ -28,10 +28,19 @@ const NuevaSeccion = () => {
         e.preventDefault();
 
         // validar los campos
+        if(nombre === ''){
+            mostrarError();
+            return
+            
+        }
 
         // agregar al state
+        agregarSeccion(seccion);
 
         // reiniciar form
+        guardarSeccion({
+            nombre: ''
+        })
     }
 
     const onClickFormulario = () => {
@@ -65,6 +74,9 @@ const NuevaSeccion = () => {
                     />
                 </form>
                 : null
+            }
+            {
+                errorFormulario ? <p className='mensaje error'>El nombre de la sección es obligatorio</p> : null
             }
         </Fragment>
      );
