@@ -4,19 +4,22 @@ import Home from './components/home/Home';
 import Login from './components/auth/Login';
 import NuevaCuenta from './components/auth/NuevaCuenta';
 import Secciones from './components/secciones/Secciones';
+import SeccionState from './context/secciones/seccionState';
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        {/* pagina principal */}
-        <Route exact path='/' component={Home} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/nueva-cuenta' component={NuevaCuenta} />
-        <Route exact path='/secciones' component={Secciones} />
-      </Switch>
-    </Router>
-  );
+return (
+    <SeccionState>
+        <Router>
+            <Switch>
+            {/* pagina principal */}
+            <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/nueva-cuenta' component={NuevaCuenta} />
+            <Route exact path='/secciones' component={Secciones} />
+            </Switch>
+        </Router>
+    </SeccionState>
+);
 }
 
 export default App;

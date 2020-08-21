@@ -1,18 +1,26 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import Seccion from './Seccion';
+import seccionContext from '../../context/secciones/seccionContext';
 
 const ListadoSecciones = () => {
 
-    const secciones = [
-        {nombre: 'Sección 1'},
-        {nombre: 'Sección 2'},
-        {nombre: 'Sección 3'}
-    ]
+    // obtener state del formulario
+    const seccionesContext = useContext(seccionContext);
+    // obtengo las funciones dentro del context
+    const {secciones, obtenerSecciones} = seccionesContext;
+
+    // obtener secciones cuando carga el componente
+    useEffect(() => {
+        obtenerSecciones();
+    }, []);
+
+    if(secciones.length === 0) return null;
 
     return ( 
         <ul className='listado-secciones'>
             {secciones.map(seccion => (
                 <Seccion 
+                    key={seccion.id}
                     seccion={seccion}
                 />
             ))}
