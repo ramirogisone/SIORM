@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import Seccion from './Seccion';
 import seccionContext from '../../context/secciones/seccionContext';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const ListadoSecciones = () => {
 
@@ -12,6 +13,7 @@ const ListadoSecciones = () => {
     // obtener secciones cuando carga el componente
     useEffect(() => {
         obtenerSecciones();
+        //eslint-disable-next-line
     }, []);
 
     if(secciones.length === 0) 
@@ -20,12 +22,19 @@ const ListadoSecciones = () => {
 
     return ( 
         <ul className='listado-secciones'>
-            {secciones.map(seccion => (
-                <Seccion 
-                    key={seccion.id}
-                    seccion={seccion}
-                />
-            ))}
+            <TransitionGroup>
+                {secciones.map(seccion => (
+                    <CSSTransition
+                        key={seccion.id}
+                        timeout={600}
+                        classNames='seccion'
+                    >
+                        <Seccion 
+                            seccion={seccion}
+                        />
+                    </CSSTransition>
+                ))}
+            </TransitionGroup>
         </ul>
      );
 }

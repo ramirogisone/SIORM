@@ -1,6 +1,8 @@
 import React, {Fragment, useContext} from 'react';
 import Imagen from './Imagen';
 import seccionContext from '../../context/secciones/seccionContext';
+import imagenContext from '../../context/imagenes/imagenContext';
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 const ListadoImagenes = () => {
 
@@ -9,17 +11,15 @@ const ListadoImagenes = () => {
     // obtengo funciones y states dentro del context 
     const {seccion, eliminarSeccion} = seccionesContext;
 
+    // obtener state e imagenes del context de imagenes
+    const imagenesContext = useContext(imagenContext);
+    const {imagenesSeccion} = imagenesContext;
+
     // si no hay ningun proyecto seleccionado
     if(!seccion) return <h2>Selecciona una Sección</h2>
 
     // destructuring para extraer la seccion actual
     const [seccionActual] = seccion;
-
-    const imagenes = [
-        {nombre: 'Imágen 1', descripcion: 'descripcion imagen 1', link: 'url a imagen 1', estado: true},
-        {nombre: 'Imágen 2', descripcion: 'descripcion imagen 2', link: 'url a imagen 2', estado: false},
-        {nombre: 'Imágen 3', descripcion: 'descripcion imagen 3', link: 'url a imagen 3', estado: true}
-    ]
 
     const onClickEliminar = () => {
         eliminarSeccion(seccionActual.id);
@@ -28,12 +28,24 @@ const ListadoImagenes = () => {
     return ( 
         <Fragment>
             <h2>Sección: {seccionActual.nombre}</h2>
+            
             <ul className='listado-imagenes'>
-                {imagenes.map(imagen => (
-                    <Imagen 
-                        imagen={imagen}
-                    />
-                ))}
+            {imagenesSeccion.length === 0 
+                ? (<li className='imagen'><p>No hay imágenes</p></li>) : 
+                <TransitionGroup>
+                    {imagenesSeccion.map(imagen => (
+                        <CSSTransition
+                            key={imagen.id}
+                            timeout={600}    
+                            classNames='imagen'
+                        >
+                            <Imagen 
+                                imagen={imagen}
+                            />
+                        </CSSTransition>
+                    ))}
+                </TransitionGroup>
+            }    
             </ul>
             <button
                 type='button'

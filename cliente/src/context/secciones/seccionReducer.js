@@ -15,7 +15,7 @@ export default (state, action) => {
         case AGREGAR_SECCIONES:
             return{
                 ...state,
-                secciones: [...state.secciones, action.payload],
+                secciones: [action.payload, ...state.secciones],
                 formulario: false,
                 errorFormulario: false
             }
