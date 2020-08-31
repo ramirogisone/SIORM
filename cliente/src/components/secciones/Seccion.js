@@ -22,7 +22,7 @@ const Seccion = ({seccion}) => {
         <li>
             <button
                 type='button'
-                className='btn btn-blank'
+                className='button button-blank'
                 onClick={() => seleccionarSeccion(seccion.id)}
             >{seccion.nombre}{seccion.descripcion}{seccion.link}
 

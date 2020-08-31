@@ -50,7 +50,7 @@ const NuevaSeccion = () => {
         <Fragment>
             <button
                 type='button'
-                className='btn btn-block btn-primario'
+                className='button button-block button-primario'
                 onClick={onClickFormulario}
             >Nueva Sección</button>
             { formulario ? 
@@ -69,7 +69,7 @@ const NuevaSeccion = () => {
                     />
                     <input 
                         type='submit'  
-                        className='btn btn-primario btn-block'
+                        className='button button-primario button-block'
                         value='Agregar sección'
                     />
                 </form>

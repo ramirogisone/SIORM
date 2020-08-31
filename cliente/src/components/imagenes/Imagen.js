@@ -56,12 +56,12 @@ const Imagen = ({imagen}) => {
             <div className='acciones'>
                 <button
                     type='button'
-                    className='btn btn-primario'
+                    className='button button-primario'
                     onClick={() => seleccionarImagen(imagen)}
                 >Editar</button>
                 <button
                     type='button'
-                    className='btn btn-secundario'
+                    className='button button-secundario'
                     onClick={() => onClickEliminar(imagen.id)}
                 >Eliminar</button>
             </div>

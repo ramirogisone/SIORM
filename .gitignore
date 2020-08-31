@@ -3,7 +3,10 @@
 # dependencies
 cliente/node_modules
 cliente/.pnp
+servidor/node_modules
+servidor/.pnp
 .pnp.js
+servidor/variables.env
 
 # testing
 cliente/coverage

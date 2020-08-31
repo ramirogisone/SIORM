@@ -51,7 +51,7 @@ a {
 }
 
 /** BOTONES **/
-.btn {
+.button {
   margin-top: 2rem;
   font-family: var(--headingFont);
   padding: 1.5rem;
@@ -61,27 +61,27 @@ a {
   border: none;
   transition: background-color .3s ease;
 }
-.btn:hover {
+.button:hover {
   cursor: pointer;
 }
-.btn-primario {
+.button-primario {
   background-color: var(--gris2);
   color: var(--blanco);
 }
-.btn-primario:hover {
+.button-primario:hover {
   background: var(--gris3);
 }
-.btn-secundario {
+.button-secundario {
   background-color: var(--gris1);
 }
-.btn-block {
+.button-block {
   display: block;
   width: 100%;
 }
-.btn-submit:hover {
+.button-submit:hover {
   background-color: var(--gris2);
 }
-.btn-blank {
+.button-blank {
   margin: 0;
   padding: 0;
   display: block;
@@ -222,7 +222,7 @@ aside  {
   -moz-box-shadow: 0px 6px 11px -8px rgba(0,0,0,0.9);
   box-shadow: 0px 6px 11px -8px rgba(0,0,0,0.9);
 }
-.imagen .acciones .btn:first-of-type {
+.imagen .acciones .button:first-of-type {
   margin-right: 1rem;
 }
 .imagen p {
@@ -230,7 +230,7 @@ aside  {
   flex: 1;
   padding-right: 2rem;
 }
-.imagen .btn {
+.imagen .button {
   padding: .8rem;
   font-size:1.4rem;
   border-radius: 0;
@@ -367,4 +367,13 @@ aside  {
 .alerta-error {
   background-color: rgb(230, 78, 78);
   color: var(--blanco);
+}
+
+/* .carousel {
+  padding-top: 70px;
+} */
+
+.imgCard {
+  min-height: 300px;
+  overflow: hidden;
 }

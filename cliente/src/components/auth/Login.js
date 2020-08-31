@@ -59,7 +59,7 @@ const Login = () => {
                     <div className='campo-form'>
                         <input 
                             type='submit'  
-                            className='btn btn-primario btn-block'
+                            className='button button-primario button-block'
                             value='Iniciar Sesión'
                         /> 
 

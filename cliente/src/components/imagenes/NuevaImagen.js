@@ -123,7 +123,7 @@ const NuevaImagen = () => {
                     
                         <input 
                             type='submit'  
-                            className='btn btn-primario btn-submit btn-block'
+                            className='button button-primario button-submit button-block'
                             value={imagenSeleccionada ? 'Editar Imágen' : 'Agregar Imágen'}
                         />
                     

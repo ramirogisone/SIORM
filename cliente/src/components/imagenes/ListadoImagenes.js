@@ -49,7 +49,7 @@ const ListadoImagenes = () => {
             </ul>
             <button
                 type='button'
-                className='btn btn-eliminar'
+                className='button button-eliminar'
                 onClick={onClickEliminar}
             >Eliminar Sección &times;</button>
         </Fragment>
