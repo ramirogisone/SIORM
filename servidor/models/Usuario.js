@@ -20,8 +20,7 @@ const UsuariosSchema = mongoose.Schema({
     perfil: {
         type: String,
         required: true,
-        trim: true,
-        default: 'cliente'
+        trim: true  
     },
     registro: {
         type: Date,

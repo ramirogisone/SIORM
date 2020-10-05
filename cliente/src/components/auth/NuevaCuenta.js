@@ -1,27 +1,12 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import AlertaContext from '../../context/alertas/alertaContex';
-import AuthContext from '../../context/autenticacion/authContext';
 
-const NuevaCuenta = (props) => {
+const NuevaCuenta = () => {
 
     // extraer los valores del context
     const alertaContex = useContext(AlertaContext);
     const {alerta, mostrarAlerta} = alertaContex;
-
-    const authContext = useContext(AuthContext);
-    const {mensaje, autenticado, registroUsuario} = authContext;
-
-    useEffect(() => {
-        // cuando el usr es autenticado se redirige a secciones. Falta agregar la validacion del perfil, ya que solo admin iran a esta
-        if(autenticado){
-            props.history.push('/secciones');
-        }
-
-        if (mensaje){
-            mostrarAlerta(mensaje.msg, mensaje.categoria);
-        }
-    }, [mensaje, autenticado, props.history])
 
     // state para iniciar sesión
     const [usuario, guardarUsuario] = useState({
@@ -55,16 +40,11 @@ const NuevaCuenta = (props) => {
             return;
         }
         // passwords iguales
-        if(password !== confirmar){
+        if(password != confirmar){
             mostrarAlerta('Los passwords deben ser iguales', 'alerta-error');
             return;
         }
         // pasarlos al action
-        registroUsuario({
-            nombre,
-            email,
-            password
-        });
     }
 
     return ( 
