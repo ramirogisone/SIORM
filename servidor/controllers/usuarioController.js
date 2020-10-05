@@ -44,7 +44,7 @@ exports.crearUsuario = async (req, res) => {
         }, (error, token) => {
             if(error) throw error;
 
-            res.json({token});
+            res.status(200).json({token});
         })
 
     } catch (error) {

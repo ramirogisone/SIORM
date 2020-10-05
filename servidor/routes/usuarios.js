@@ -9,8 +9,8 @@ router.post('/',
     [
         check('nombre', 'El nombre es obligatorio').not().isEmpty(),
         check('email', 'Agregar un email válido').isEmail(),
-        check('password', 'El password debe contener al menos 6 caracteres').isLength(6),
-        check('perfil', 'El perfíl es obligatorio').not().isEmpty()
+        check('password', 'El password debe contener al menos 6 caracteres').isLength(6)
+        // check('perfil', 'El perfíl es obligatorio').not().isEmpty()
     ],
     usuarioController.crearUsuario
 );
